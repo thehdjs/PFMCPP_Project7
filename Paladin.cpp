@@ -1,7 +1,14 @@
 #include "Paladin.h"
+#include "Utility.h"
 
 // Paladin::Paladin
 
-// Paladin::getName
+const std::string& Paladin::getName()
+{
+    return name;
+}
 
-// Paladin::getStats
+std::string Paladin::getStats()
+{
+    return getCharacterStats(this);
+}

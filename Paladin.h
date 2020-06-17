@@ -1,6 +1,7 @@
 #pragma once
-
-struct Paladin : Character
+#include "Character.h"
+#include <iostream>
+struct Paladin : public Character
 {
 
     Paladin(std::string entity_name, int hp, int armor) : Character(hp, armor, 10), name(entity_name) {}

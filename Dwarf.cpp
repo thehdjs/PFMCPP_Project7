@@ -1,18 +1,15 @@
 #include "Dwarf.h"
+#include "Utility.h"
 
-std::string Dwarf::getName() {
+const std::string& Dwarf::getName() 
+{
   return name; // maybe copy to a new string
 }
 
-std::string Dwarf::getStats() {
-  return "Something";
-}
-
-
-
 //Dwarf::Dwarf
 
-//Dwarf::getName
-
-//Dwarf::getStats
+std::string Dwarf::getStats()
+{
+    return getCharacterStats(this);
+}
 
