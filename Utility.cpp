@@ -2,6 +2,7 @@
 
 #include "HelpfulItem.h"
 #include "DefensiveItem.h"
+#include "AttackItem.h"
 #include "Character.h"
 
 
