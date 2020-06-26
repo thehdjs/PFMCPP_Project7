@@ -53,11 +53,11 @@ void useDefensiveItem(Character* character, Item& item)
     else if( auto* cha = dynamic_cast<Paladin*>(character) )
     {
         //same with paladins
-        ch->boostArmor( item.getBoost() * 1.3 );
+        cha->boostArmor( item.getBoost() * 1.3 );
     }
     else if( auto* chb = dynamic_cast<DragonSlayer*>(character))
     {
-        ch->boostArmor( item.getBoost() * 1.5 );
+        chb->boostArmor( item.getBoost() * 1.5 );
     }
     else if( auto* chc = dynamic_cast<Dragon*>(character) )
     {
@@ -72,11 +72,11 @@ void useHelpfulItem(Character* character, Item* item)
     }
     else if( auto* cha = dynamic_cast<Paladin*>(character) )
     {
-        ch->boostHitPoints(item->getBoost() * 1.5);
+        cha->boostHitPoints(item->getBoost() * 1.5);
     }
     else if( auto* chb = dynamic_cast<DragonSlayer*>(character))
     {
-        ch->boostHitPoints(item->getBoost() * 1.25);
+        chb->boostHitPoints(item->getBoost() * 1.25);
     }
     else if( auto* chc = dynamic_cast<Dragon*>(character) )
     {
@@ -91,11 +91,11 @@ void useAttackItem(Character* character, Item* item)
     }
     else if( auto* cha = dynamic_cast<Paladin*>(character) )
     {
-        ch->boostAttackDamage(item->getBoost() * 1.33);
+        cha->boostAttackDamage(item->getBoost() * 1.33);
     }
     else if( auto* chb = dynamic_cast<DragonSlayer*>(character))
     {
-        assert(false);
+        chb->boostAttackDamage(item->getBoost() * 10.f);
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so their attack item should boost their attack damage by a factor of 10
         //this means you need to GET the attack damage, multiply it by the item's boost, and BOOST the attackDamage with that multiplied value.  

@@ -4,11 +4,9 @@
 #include "DragonSlayer.h"
 #include "Dragon.h"
 #include "Utility.h"
-#include <assert>
-
 
 void DefensiveItem::use(Character* character)
 {
-    useDefensiveItem(Character*, Item& item)
+    useDefensiveItem(character, *this);
     //make your defensive item use the appropriate Utility helper functions
 }

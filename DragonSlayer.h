@@ -1,5 +1,6 @@
 #pragma once
 #include "Character.h"
+#include "AttackItem.h"
 #include <iostream>
 
 struct DragonSlayer : public Character
@@ -9,6 +10,10 @@ struct DragonSlayer : public Character
     const std::string& getName() override;
     std::string getStats() override;
     void attack(Character& other) override;
+    
+    AttackItem attackItem;
+    
 private:
+    std::vector<std::unique_ptr<Item>> attackItems;
     const std::string name;
 };
