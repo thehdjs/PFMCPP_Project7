@@ -1,9 +1,8 @@
 #pragma once
 #include "Character.h"
 #include "AttackItem.h"
-#include <iostream>
 
-struct DragonSlayer : public Character
+struct DragonSlayer : Character
 {
     DragonSlayer(std::string entity_name, int hp, int armor) ;//: Character(hp, armor, 4), name(entity_name) {}
 

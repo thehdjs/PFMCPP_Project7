@@ -3,7 +3,7 @@
 
 const std::string& Dwarf::getName() 
 {
-  return name; // maybe copy to a new string
+    return name; // maybe copy to a new string
 }
 
 Dwarf::Dwarf(std::string entity_name, int hp, int armor) : Character(hp, armor, 4), name(entity_name)

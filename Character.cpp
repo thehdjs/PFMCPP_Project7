@@ -27,7 +27,6 @@ void Character::attack( Character& other )
     isDefending = false;
     std::cout << getName() << " has attacked " << other.getName() << std::endl;
     //subtract attackDamage from other->hitPoints
-    other.hitPoints -= attackDamage;
     
     if( other.takeDamage(attackDamage) <= 0 )
     {
