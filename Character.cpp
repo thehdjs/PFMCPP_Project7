@@ -89,25 +89,53 @@ int Character::takeDamage(int damage)
 
 
 //#include <assert>
+
+void defeatedOther(int attribute, std::unique_ptr<int>& initialAttribute)
+        {
+            if (attribute < *initialAttribute)
+            {
+                attribute = *initialAttribute;
+            }
+            attribute *= 1.1;
+            *initialAttribute = attribute;
+        }
+
+        /*
+        once you figure out the correct logic, you need to D.R.Y. refactor it. use a free function.
+        */
+        
 void Character::attackInternal(Character& other)
 {
-    if( other.hitPoints <= 0 )
-    {   
-        *initialHitPoints *= 1.1;
 
-        if (hitPoints < *initialHitPoints)
+    if( other.hitPoints <= 0 )
+    {   ;
+        defeatedOther(hitPoints, initialHitPoints);
+        defeatedOther(armor, initialArmorLevel);
+        defeatedOther(attackDamage, initialAttackDamage);
+
+        /*if (hitPoints < *initialHitPoints)
         {
             hitPoints = *initialHitPoints;
         }
 
-        *initialArmorLevel *= 1.1;
+        hitPoints *= 1.1;
+        *initialHitPoints = hitPoints;
 
         if (armor < *initialArmorLevel)
         {
             armor = *initialArmorLevel;
         }
+        armor *= 1.1;
+        *initialArmorLevel = armor;
 
-        /*
+        if (attackDamage < *initialAttackDamage)
+        {
+            attackDamage = *initialAttackDamage;
+        }
+        attackDamage *= 1.1;
+        *initialAttackDamage = attackDamage;
+
+        
         When you defeat another Character: 
             a) your stats are restored to their initial value if they are lower than it.
             b) your stats are boosted 10%

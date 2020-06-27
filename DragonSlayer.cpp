@@ -27,9 +27,9 @@ void DragonSlayer::attack(Character& other)
         
          for( auto& item : attackItems )
         {
-            if( auto* attackItem1 = dynamic_cast<AttackItem*>(item.get()) )
+            if( auto* attackItem = dynamic_cast<AttackItem*>(item.get()) )
             {
-                attackItem1->use(this);
+                attackItem->use(this);
                 item.reset(); //can only be used once!
                 break;
             }
