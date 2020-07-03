@@ -90,7 +90,7 @@ int Character::takeDamage(int damage)
 
 //#include <assert>
 
-void defeatedOther(int attribute, std::unique_ptr<int>& initialAttribute)
+void defeatedOther(int& attribute, std::unique_ptr<int>& initialAttribute)
         {
             if (attribute < *initialAttribute)
             {
@@ -101,14 +101,15 @@ void defeatedOther(int attribute, std::unique_ptr<int>& initialAttribute)
         }
 
         /*
-        once you figure out the correct logic, you need to D.R.Y. refactor it. use a free function.
+        Pass by reference. you're passing attribute by copy. That means your class member isn't being updated
+Also, dereference before you pass in the initialAttribute. it looks a lot cleaner if you do that.
         */
         
 void Character::attackInternal(Character& other)
 {
 
     if( other.hitPoints <= 0 )
-    {   ;
+    {   
         defeatedOther(hitPoints, initialHitPoints);
         defeatedOther(armor, initialArmorLevel);
         defeatedOther(attackDamage, initialAttackDamage);

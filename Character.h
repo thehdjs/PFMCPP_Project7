@@ -67,4 +67,4 @@ private:
     void attackInternal(Character& other);
 };
 
-void defeatedOther(int attribute, std::unique_ptr<int>& initialAttribute);
+void defeatedOther(int& attribute, std::unique_ptr<int>& initialAttribute);

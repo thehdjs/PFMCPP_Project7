@@ -4,8 +4,9 @@
 
 DragonSlayer::DragonSlayer(std::string entity_name, int hp, int armor) : Character(hp, armor, 4), name(entity_name)
 {
-    defensiveItems = makeDefensiveItems(7);
-    helpfulItems = makeHelpfulItems(2);
+    attackItem = std::unique_ptr<AttackItem>(new AttackItem());
+    defensiveItems = makeDefensiveItems(1);
+    helpfulItems = makeHelpfulItems(3);
 }
 
 const std::string& DragonSlayer::getName()
@@ -24,16 +25,9 @@ void DragonSlayer::attack(Character& other)
         //so they should USE their attack item before attacking the dragon... 
         //note that items are single-use only, so you need to reset it after use.  
         //look in the Character class for how the other item types are reset after use.
-        
-         for( auto& item : attackItems )
-        {
-            if( auto* attackItem = dynamic_cast<AttackItem*>(item.get()) )
-            {
-                attackItem->use(this);
-                item.reset(); //can only be used once!
-                break;
-            }
-        }
+
+        attackItem->use(this);
+        attackItem.reset(); //can only be used once!
 
     while( dragon->getHP() > 0 )
         {

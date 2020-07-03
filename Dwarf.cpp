@@ -9,7 +9,7 @@ const std::string& Dwarf::getName()
 Dwarf::Dwarf(std::string entity_name, int hp, int armor) : Character(hp, armor, 4), name(entity_name)
 {
     defensiveItems = makeDefensiveItems(5);
-    helpfulItems = makeHelpfulItems(3);
+    helpfulItems = makeHelpfulItems(2);
 }
 
 std::string Dwarf::getStats()
