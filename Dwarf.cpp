@@ -1,7 +1,19 @@
 #include "Dwarf.h"
+#include "Utility.h"
 
-//Dwarf::Dwarf
+const std::string& Dwarf::getName() 
+{
+    return name; // maybe copy to a new string
+}
 
-//Dwarf::getName
+Dwarf::Dwarf(std::string entity_name, int hp, int armor) : Character(hp, armor, 4), name(entity_name)
+{
+    defensiveItems = makeDefensiveItems(5);
+    helpfulItems = makeHelpfulItems(2);
+}
 
-//Dwarf::getStats
+std::string Dwarf::getStats()
+{
+    return getCharacterStats(this);
+}
+

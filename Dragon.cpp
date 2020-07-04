@@ -1,5 +1,6 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
+#include "Utility.h"
 
 //Dragon::Dragon
 
@@ -17,6 +18,12 @@ void Dragon::attack(Character &other)
     }
 }
 
-//Dragon::getName
+const std::string& Dragon::getName()
+{
+    return name;
+}
 
-//Dragon::getStats
+std::string Dragon::getStats()
+{
+    return getCharacterStats(this);
+}
