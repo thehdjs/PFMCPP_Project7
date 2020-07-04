@@ -91,14 +91,14 @@ int Character::takeDamage(int damage)
 //#include <assert>
 
 void defeatedOther(int& attribute, std::unique_ptr<int>& initialAttribute)
-        {
-            if (attribute < *initialAttribute)
-            {
-                attribute = *initialAttribute;
-            }
-            attribute *= 1.1;
-            *initialAttribute = attribute;
-        }
+{
+    if (attribute < *initialAttribute)
+    {
+        attribute = *initialAttribute;
+    }
+    attribute *= 1.1;
+    *initialAttribute = attribute;
+}
 
         /*
         Pass by reference. you're passing attribute by copy. That means your class member isn't being updated
@@ -113,35 +113,12 @@ void Character::attackInternal(Character& other)
         defeatedOther(hitPoints, initialHitPoints);
         defeatedOther(armor, initialArmorLevel);
         defeatedOther(attackDamage, initialAttackDamage);
-
-        /*if (hitPoints < *initialHitPoints)
-        {
-            hitPoints = *initialHitPoints;
-        }
-
-        hitPoints *= 1.1;
-        *initialHitPoints = hitPoints;
-
-        if (armor < *initialArmorLevel)
-        {
-            armor = *initialArmorLevel;
-        }
-        armor *= 1.1;
-        *initialArmorLevel = armor;
-
-        if (attackDamage < *initialAttackDamage)
-        {
-            attackDamage = *initialAttackDamage;
-        }
-        attackDamage *= 1.1;
-        *initialAttackDamage = attackDamage;
-
         
-        When you defeat another Character: 
+        /*  When you defeat another Character: 
             a) your stats are restored to their initial value if they are lower than it.
             b) your stats are boosted 10%
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
-      */
+        */
         //assert(false);
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }

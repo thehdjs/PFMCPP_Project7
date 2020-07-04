@@ -13,7 +13,6 @@ struct DragonSlayer : Character
 
 protected:
     std::unique_ptr<Item> attackItem;
-   // std::vector<std::unique_ptr<Item>> attackItems;
 private:
     const std::string name;
 };

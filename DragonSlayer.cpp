@@ -16,7 +16,6 @@ const std::string& DragonSlayer::getName()
 
 void DragonSlayer::attack(Character& other)
 {
-    //attackItem.use(this);
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
     {
@@ -29,7 +28,7 @@ void DragonSlayer::attack(Character& other)
         attackItem->use(this);
         attackItem.reset(); //can only be used once!
 
-    while( dragon->getHP() > 0 )
+        while( dragon->getHP() > 0 )
         {
             dragon->takeDamage(attackDamage);
         }
